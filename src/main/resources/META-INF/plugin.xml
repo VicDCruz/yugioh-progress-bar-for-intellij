@@ -25,9 +25,10 @@
 
     <!-- Extensions defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
-    <extensions defaultExtensionNs="com.intellij">
-        <toolWindow id="MyToolWindow" factoryClass="cruz.victor.MyToolWindowFactory"
-                    icon="AllIcons.Toolwindows.ToolWindowPalette"/>
-    </extensions>
+    <application-components>
+        <component>
+            <implementation-class>cruz.victor.YugiohApplicationComponent</implementation-class>
+        </component>
+    </application-components>
 
 </idea-plugin>
