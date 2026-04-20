@@ -5,16 +5,15 @@
 
     <!-- Public plugin name should be written in Title Case.
      Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-name -->
-    <name>Yugioh-progress-bar-for-intellij</name>
+    <name>Yugioh-Progress-Bar</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor url="https://www.yourcompany.com">YourCompany</vendor>
+    <vendor url="https://github.com/victorcruz">Victor Cruz</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-description -->
     <description><![CDATA[
-        Enter short description for your plugin here.<br>
-        <em>most HTML tags may be used</em>
+        A Yu-Gi-Oh! themed progress bar for IntelliJ IDEA.
         ]]></description>
 
     <!-- Product and plugin compatibility requirements.
@@ -25,10 +24,12 @@
 
     <!-- Extensions defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
-    <application-components>
-        <component>
-            <implementation-class>cruz.victor.YugiohApplicationComponent</implementation-class>
-        </component>
-    </application-components>
+    <extensions defaultExtensionNs="com.intellij">
+        <postStartupActivity implementation="cruz.victor.YugiohProgressBarInitializer"/>
+    </extensions>
+
+    <applicationListeners>
+        <listener class="cruz.victor.YugiohApplicationComponent" topic="com.intellij.ide.ui.LafManagerListener"/>
+    </applicationListeners>
 
 </idea-plugin>
